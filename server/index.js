@@ -1,17 +1,21 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 const app = express();
-cors({
+
+const corsOptions = {
   origin: [
     "http://localhost:5173",
     "https://collab-repo.vercel.app"
   ],
   credentials: true,
-});
+};
 
-
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose
@@ -23,7 +27,8 @@ app.get("/", (req, res) => {
   res.send("Backend is running!");
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log("Server running on port", PORT);
-});
+app.listen(5000, () => console.log("Server running on port 5000"));
+
+
+import userRoutes from "./routes/userRoutes.js";
+app.use("/api/users", userRoutes);
