@@ -2,6 +2,14 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
+cors({
+  origin: [
+    "http://localhost:5173",
+    "https://collab-repo.vercel.app"
+  ],
+  credentials: true,
+});
+
 
 app.use(cors());
 app.use(express.json());
