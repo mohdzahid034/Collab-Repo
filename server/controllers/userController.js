@@ -1,6 +1,9 @@
-import User from '../models/User.js'
+import express from "express";
+import { registerUser, loginUser } from "../controllers/userController.js";
 
+const router = express.Router();
 // Register user
+router.post("/register", registerUser);
 export const registerUser = async (req, res) => {
     try {
         const { name, email, password } = req.body
@@ -18,6 +21,7 @@ export const registerUser = async (req, res) => {
 }
 
 // Login user
+router.post("/login", loginUser);
 export const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body
@@ -36,3 +40,9 @@ export const loginUser = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
+
+// TEST route (optional)
+router.post("/add", (req, res) => {
+  res.json({ message: "Test route working!" });
+});
+export default router;
