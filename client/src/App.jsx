@@ -17,7 +17,8 @@ function App() {
         </a>
         <h1>Bismilla hirahman nir raheem</h1>
         <label htmlFor="name">Name</label>
-        <input type="text"/>
+        <input type="text" id="name"/>
+        <button type="submit">Submit</button>
       </div>
       <h1>Vite + React</h1>
       <div className="card">
