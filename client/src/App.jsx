@@ -16,6 +16,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
         <h1>Bismilla hirahman nir raheem</h1>
+        <label htmlFor="name">Name</label>
+        <input type="text"/>
       </div>
       <h1>Vite + React</h1>
       <div className="card">
